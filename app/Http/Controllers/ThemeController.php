@@ -53,18 +53,71 @@ class ThemeController extends Controller
     }
     
     /**
-     * Example of using the data in a view.
+     * Show the themes page.
      *
      * @return \Illuminate\View\View
      */
     public function showThemesPage()
     {
-        // Since we're using view composer, you don't need to pass the data
-        // to the view. It's already available.
-        return view('theme');
+        return view('themes.index');
+    }
+
+    /**
+     * Show a specific theme details page.
+     *
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
+    public function showThemeDetails($slug)
+    {
+        $theme = $this->findThemeBySlug($slug);
         
-        // Alternatively, if you need specific data or need to transform it:
-        // $specificTheme = $this->themeDataService->getThemes()[0];
-        // return view('theme-detail', ['theme' => $specificTheme]);
+        if (!$theme) {
+            abort(404);
+        }
+        
+        // Get related themes (excluding the current theme)
+        $relatedThemes = collect($this->themeDataService->getThemes())
+            ->filter(function($item) use ($theme) {
+                return $item['name'] !== $theme['name'];
+            })
+            ->take(3)
+            ->all();
+            
+        return view('themes.details', compact('theme', 'relatedThemes'));
+    }
+    
+    /**
+     * Find a theme by its URL slug.
+     *
+     * @param string $slug
+     * @return array|null
+     */
+    private function findThemeBySlug($slug)
+    {
+        $themes = $this->themeDataService->getThemes();
+        
+        foreach ($themes as $theme) {
+            $themeSlug = $this->generateSlug($theme['name']);
+            
+            if ($themeSlug === $slug) {
+                // Add the slug to the theme array
+                $theme['slug'] = $themeSlug;
+                return $theme;
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Generate a URL-friendly slug from a string.
+     *
+     * @param string $name
+     * @return string
+     */
+    private function generateSlug($name)
+    {
+        return strtolower(str_replace(' ', '-', $name));
     }
 } 

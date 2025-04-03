@@ -16,4 +16,5 @@ use App\Http\Controllers\ThemeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/themes', [ThemeController::class, 'showThemesPage'])->name('theme');
+Route::get('/themes', [ThemeController::class, 'showThemesPage'])->name('themes');
+Route::get('/themes/{slug}', [ThemeController::class, 'showThemeDetails'])->name('theme.details');
