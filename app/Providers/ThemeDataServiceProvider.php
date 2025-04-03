@@ -4,14 +4,11 @@ namespace App\Providers;
 
 use App\Services\ThemeDataService;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\View\Component;
-use Illuminate\View\ComponentAttributeBag;
 
-class AppServiceProvider extends ServiceProvider
+class ThemeDataServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
@@ -21,12 +18,10 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
-        Blade::component('layouts.app', 'app-layout');
-        
         // Share common data with all views
         view()->composer('*', function ($view) {
             $themeDataService = app(ThemeDataService::class);
@@ -39,4 +34,4 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
     }
-}
+} 
