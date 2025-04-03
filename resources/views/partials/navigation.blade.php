@@ -7,24 +7,16 @@
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-10">
-                <a href="#themes" class="text-gray-700 hover:text-primary font-medium transition duration-150 relative group">
-                    Themes
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#features" class="text-gray-700 hover:text-primary font-medium transition duration-150 relative group">
-                    Features
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition duration-150 relative group">
+                <a href="/#contact" class="text-gray-700 hover:text-primary font-medium transition duration-150 relative group">
                     Contact
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="#contact" class="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-linear-to-r from-primary to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition duration-150 shadow-md">
-                    Get Started
+                <a href="/themes" class="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-linear-to-r from-primary to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition duration-150 shadow-md">
+                    Themes
                 </a>
             </div>
             <div class="md:hidden flex items-center">
-                <button type="button" class="text-gray-700 hover:text-primary transition duration-150">
+                <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-primary transition duration-150">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -32,4 +24,39 @@
             </div>
         </div>
     </div>
-</nav> 
+
+    <!-- Mobile menu, show/hide based on menu state -->
+    <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg mx-4">
+            <a href="/#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
+                Contact
+            </a>
+            <a href="/themes" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-indigo-700">
+                Themes
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle mobile menu visibility when hamburger is clicked
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking outside of it
+            document.addEventListener('click', function(event) {
+                const isClickInsideMenu = mobileMenu.contains(event.target);
+                const isClickOnButton = mobileMenuButton.contains(event.target);
+                
+                if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</nav>

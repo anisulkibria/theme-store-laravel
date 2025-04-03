@@ -116,12 +116,6 @@
                         <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                             Features
                         </button>
-                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Documentation
-                        </button>
-                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Reviews
-                        </button>
                     </nav>
                 </div>
 
@@ -188,64 +182,6 @@
                             @endif
                         </div>
                     </div>
-
-                    <!-- Documentation Tab -->
-                    <div id="documentation-tab" class="prose prose-lg max-w-none hidden">
-                        <h2>Documentation</h2>
-                        <p>Comprehensive documentation is included with your purchase to help you get started quickly and customize your theme.</p>
-                        
-                        <h3>Getting Started</h3>
-                        <ol>
-                            <li>Download the theme files from your purchase</li>
-                            <li>Upload the theme to your Ghost installation</li>
-                            <li>Activate the theme in your Ghost admin panel</li>
-                            <li>Configure theme settings as needed</li>
-                        </ol>
-
-                        <h3>Theme Customization</h3>
-                        <p>Learn how to customize your theme:</p>
-                        <ul>
-                            <li>Changing colors and typography</li>
-                            <li>Modifying layout options</li>
-                            <li>Adding custom CSS</li>
-                            <li>Configuring navigation menus</li>
-                        </ul>
-
-                        <h3>Support Resources</h3>
-                        <ul>
-                            <li>Detailed documentation PDF</li>
-                            <li>Video tutorials</li>
-                            <li>FAQ section</li>
-                            <li>Email support</li>
-                        </ul>
-                    </div>
-
-                    <!-- Reviews Tab -->
-                    <div id="reviews-tab" class="prose prose-lg max-w-none hidden">
-                        <h2>Customer Reviews</h2>
-                        <div class="space-y-8">
-                            @foreach($testimonials as $review)
-                            <div class="border-b border-gray-200 pb-8">
-                                <div class="flex items-center mb-4">
-                                    <div class="flex items-center">
-                                        @for($i = 0; $i < $review['rating']; $i++)
-                                        <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
-                                        @endfor
-                                    </div>
-                                    <span class="text-gray-500 ml-2">{{ $review['date'] }}</span>
-                                </div>
-                                <p class="text-gray-600 mb-4">"{{ $review['quote'] }}"</p>
-                                <div class="flex items-center">
-                                    <img src="{{ $review['avatar'] }}" alt="User avatar" class="w-10 h-10 rounded-full mr-3">
-                                    <div>
-                                        <h4 class="font-medium">{{ $review['name'] }}</h4>
-                                        <p class="text-sm text-gray-500">{{ $review['title'] }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -290,9 +226,7 @@
             const tabs = document.querySelectorAll('button[class*="whitespace-nowrap"]');
             const tabContents = [
                 document.getElementById('description-tab'),
-                document.getElementById('features-tab'),
-                document.getElementById('documentation-tab'),
-                document.getElementById('reviews-tab')
+                document.getElementById('features-tab')
             ];
             
             tabs.forEach((tab, index) => {
