@@ -31,10 +31,10 @@
                         Discover our collection of beautifully designed, responsive Ghost themes that transform your blog into a professional online presence.
                     </p>
                     <div class="mt-10 flex flex-wrap gap-4">
-                        <a href="#themes" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-primary bg-white hover:bg-gray-50 transition duration-150 shadow-lg">
+                        <a href="#themes" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-primary bg-white hover:bg-gray-50 transition duration-150 shadow-lg">
                             Browse Themes
                         </a>
-                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-lg text-white hover:bg-white/10 transition duration-150">
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-full text-white hover:bg-white/10 transition duration-150">
                             Contact Us
                         </a>
                     </div>

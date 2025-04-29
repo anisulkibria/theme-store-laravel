@@ -19,8 +19,9 @@ class ThemeDataService
                 'rating' => '4.9',
                 'description' => 'Bootstrap Ghost theme with 2 hours free customization service. Speed, simplicity, and style.',
                 'detailUrl' => '/themes/acceler',
+                'demoUrl' => 'https://acceler.ghost-theme.com',
                 'purchaseUrl' => 'https://anisul.lemonsqueezy.com/buy/d5cc9715-97ed-4e05-bfdc-0bee0bd5ed69',
-                'sales' => '500+',
+                'sales' => '50+',
                 'fullDescription' => 'Acceler is a modern, responsive Ghost theme built with Bootstrap 5. It\'s designed to provide a fast, clean, and professional look for your blog or content website. The theme comes with a variety of features and customization options to help you create the perfect website for your needs.',
                 'keyBenefits' => [
                     'Lightning-fast performance optimized for Ghost CMS',
@@ -56,21 +57,66 @@ class ThemeDataService
                     'Cross-browser compatibility'
                 ],
                 'previewImages' => [
-                    '/images/acceler-1.webp',
-                    '/images/acceler-2.webp',
-                    '/images/acceler-3.webp',
-                    '/images/acceler-4.webp'
+                    '/images/acceler-1.webp'
+                ]
+            ],
+            [
+                'name' => 'Bloggie',
+                'image' => '/images/bloggie.jpg',
+                'price' => '89',
+                'rating' => '5.0',
+                'description' => 'Bloggie - A clean, minimal, and modern theme for the Ghost publishing platform. Designed for bloggers, content creators, and publishers who want a professional and elegant website',
+                'detailUrl' => '/themes/bloggie',
+                'purchaseUrl' => 'https://shop.ghost-theme.com/buy/96bf281d-23e3-4767-ae4c-c08180f8c369',
+                'demoUrl' => 'https://bloggie.ghost-theme.com',
+                'sales' => '30+',
+                'fullDescription' => 'Bloggie ia a clean, minimal, and modern theme for the Ghost publishing platform. Designed for bloggers, content creators, and publishers who want a professional and elegant website.',
+                'keyBenefits' => [
+                    'Lightning-fast performance optimized for Ghost CMS',
+                    'Mobile-first responsive design that works on all devices',
+                    'Built with TailwindCSS for easy customization',
+                    'Dark mode support for better reading experience',
+                    'SEO optimized structure',
+                    'Regular updates and support'
+                ],
+                'technicalDetails' => [
+                    'Compatible with Ghost 5.x',
+                    'Built with TailwindCSS',
+                    'Uses modern CSS features',
+                    'Optimized for performance',
+                    'Includes documentation'
+                ],
+                'features' => [
+                    'Responsive Design',
+                    'TailwindCSS',
+                    'Dark Mode Support',
+                    'Customizable Colors'
+                ],
+                'designFeatures' => [
+                    'Responsive design for all devices',
+                    'Dark mode support',
+                    'Customizable color schemes',
+                    'Typography optimization'
+                ],
+                'technicalFeatures' => [
+                    'TailwindCSS integration',
+                    'SEO optimized structure',
+                    'Fast loading performance',
+                    'Cross-browser compatibility'
+                ],
+                'previewImages' => [
+                    '/images/bloggie.jpg'
                 ]
             ],
             [
                 'name' => 'Colore',
                 'image' => '/images/colore-1-768x559.webp',
-                'price' => '59',
+                'price' => '49',
                 'rating' => '4.8',
                 'description' => 'A clean and simple premium Ghost theme with elegant design and modern features.',
                 'detailUrl' => '/themes/colore',
                 'purchaseUrl' => 'https://anisul.lemonsqueezy.com/buy/d5cc9715-97ed-4e05-bfdc-0bee0bd5ed69',
-                'sales' => '450+',
+                'sales' => '15+',
                 'features' => [
                     'Colorful Design',
                     'Modern Layout',
@@ -79,82 +125,6 @@ class ThemeDataService
                 ],
                 'previewImages' => [
                     '/images/colore-1-768x559.webp',
-                ]
-            ],
-            [
-                'name' => 'Limite',
-                'image' => '/images/limite-1-768x557.webp',
-                'price' => '49',
-                'rating' => '4.7',
-                'description' => 'A clean and simple premium Ghost theme with minimalist design and great readability.',
-                'detailUrl' => '/themes/limite',
-                'purchaseUrl' => '#',
-                'sales' => '350+',
-                'features' => [
-                    'Minimalist Design',
-                    'Focus on Typography',
-                    'Clean Reading Experience',
-                    'Fast Performance'
-                ],
-                'previewImages' => [
-                    '/images/limite-1-768x557.webp',
-                ]
-            ],
-            [
-                'name' => 'Agreable',
-                'image' => '/images/agreeable-1-768x576.webp',
-                'price' => '39',
-                'rating' => '4.9',
-                'description' => 'A clean and simple premium Ghost theme perfect for personal blogs and publications.',
-                'detailUrl' => '/themes/agreable',
-                'purchaseUrl' => '#',
-                'sales' => '400+',
-                'features' => [
-                    'Personal Blog Focus',
-                    'Author Showcase',
-                    'Related Posts',
-                    'Newsletter Integration'
-                ],
-                'previewImages' => [
-                    '/images/agreeable-1-768x576.webp',
-                ]
-            ],
-            [
-                'name' => 'Facile',
-                'image' => '/images/facile-768x572.webp',
-                'price' => '45',
-                'rating' => '4.8',
-                'description' => 'A very clean and simple premium Ghost theme with elegant design and smooth interactions.',
-                'detailUrl' => '/themes/facile',
-                'purchaseUrl' => '#',
-                'sales' => '300+',
-                'features' => [
-                    'Easy Setup',
-                    'Smooth Animations',
-                    'Elegant Design',
-                    'Mobile Optimized'
-                ],
-                'previewImages' => [
-                    '/images/facile-768x572.webp',
-                ]
-            ],
-            [
-                'name' => 'Noire',
-                'image' => '/images/noir-768x593.webp',
-                'price' => '65',
-                'rating' => '5.0',
-                'description' => 'A striking black premium Ghost theme perfect for photography and creative portfolios.',
-                'detailUrl' => '/themes/noire',
-                'purchaseUrl' => '#',
-                'sales' => '250+',
-                'features' => [
-                    'Dark Mode by Default',
-                    'Photography Focus',
-                    'Portfolio Layouts',
-                    'Advanced Image Handling'
-                ],
-                'previewImages' => [
-                    '/images/noir-768x593.webp',
                 ]
             ]
         ];
@@ -170,24 +140,24 @@ class ThemeDataService
         return [
             [
                 'quote' => 'The Acceler theme completely transformed my blog. It\'s fast, beautiful, and my readers love the experience.',
-                'name' => 'Sarah Johnson',
-                'title' => 'Food Blogger',
+                'name' => 'Marlon Misra',
+                'title' => 'Cofounder/CEO',
                 'avatar' => '/images/avatar-1.jpeg',
                 'rating' => 5,
                 'date' => '2 months ago'
             ],
             [
                 'quote' => 'I\'ve tried many Ghost themes, but the quality and support I get from Ghost Theme is unmatched. Highly recommended!',
-                'name' => 'Mark Thompson',
-                'title' => 'Tech Writer',
+                'name' => 'Sarah Kloboves',
+                'title' => 'Content and Marketing Manager',
                 'avatar' => '/images/avatar-2.jpeg',
                 'rating' => 5,
                 'date' => '1 month ago'
             ],
             [
                 'quote' => 'The customization service was a game-changer for me. I got exactly what I wanted without needing to touch any code.',
-                'name' => 'Jessica Lee',
-                'title' => 'Lifestyle Blogger',
+                'name' => 'Fouad AlFarhan',
+                'title' => 'Co-Founder',
                 'avatar' => '/images/avatar-3.jpeg',
                 'rating' => 5,
                 'date' => '2 weeks ago'
@@ -233,24 +203,64 @@ class ThemeDataService
             'themes' => [
                 ['label' => 'Acceler', 'url' => '/themes/acceler'],
                 ['label' => 'Colore', 'url' => '/themes/colore'],
-                ['label' => 'Limite', 'url' => '/themes/limite'],
-                ['label' => 'Agreable', 'url' => '/themes/agreable'],
-                ['label' => 'Facile', 'url' => '/themes/facile'],
-                ['label' => 'Noire', 'url' => '/themes/noire']
+                ['label' => 'Bloggie', 'url' => '/themes/bloggie'],
             ],
             'support' => [
-                ['label' => 'Documentation', 'url' => '#'],
-                ['label' => 'Support', 'url' => '#'],
-                ['label' => 'FAQs', 'url' => '#'],
-                ['label' => 'Contact', 'url' => '#']
+                ['label' => 'Documentation', 'url' => '/documentation'],
+                ['label' => 'Support', 'url' => '/support'],
+                ['label' => 'FAQs', 'url' => '/faqs'],
+                ['label' => 'Contact', 'url' => '/contact']
             ],
             'company' => [
-                ['label' => 'About', 'url' => '#'],
-                ['label' => 'Blog', 'url' => '#'],
-                ['label' => 'Privacy', 'url' => '#'],
-                ['label' => 'Terms', 'url' => '#']
+                ['label' => 'About', 'url' => '/about'],
+                ['label' => 'Blog', 'url' => '/blog'],
+                ['label' => 'Privacy', 'url' => '/privacy'],
+                ['label' => 'Terms', 'url' => '/terms']
             ]
         ];
+    }
+
+    /**
+     * Get related themes for a specific theme
+     * 
+     * @param string $currentThemeSlug The slug of the current theme
+     * @param int $limit Maximum number of related themes to return
+     * @return array
+     */
+    public function getRelatedThemes(string $currentThemeSlug, int $limit = 3): array
+    {
+        $allThemes = $this->getThemes();
+        $relatedThemes = [];
+        $count = 0;
+        
+        foreach ($allThemes as $theme) {
+            // Skip the current theme
+            $themeSlug = $this->getSlugFromUrl($theme['detailUrl']);
+            if ($themeSlug === $currentThemeSlug) {
+                continue;
+            }
+            
+            $relatedThemes[] = $theme;
+            $count++;
+            
+            if ($count >= $limit) {
+                break;
+            }
+        }
+        
+        return $relatedThemes;
+    }
+    
+    /**
+     * Extract slug from the URL
+     * 
+     * @param string $url
+     * @return string
+     */
+    private function getSlugFromUrl(string $url): string
+    {
+        $parts = explode('/', rtrim($url, '/'));
+        return end($parts);
     }
 
     /**

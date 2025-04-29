@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\EnhancedSeoService;
 use App\Services\ThemeDataService;
 use Illuminate\Http\Request;
 
@@ -15,14 +16,23 @@ class ThemeController extends Controller
     protected $themeDataService;
 
     /**
+     * The EnhancedSeoService instance.
+     *
+     * @var EnhancedSeoService
+     */
+    protected $seoService;
+
+    /**
      * Create a new controller instance.
      *
      * @param ThemeDataService $themeDataService
+     * @param EnhancedSeoService $seoService
      * @return void
      */
-    public function __construct(ThemeDataService $themeDataService)
+    public function __construct(ThemeDataService $themeDataService, EnhancedSeoService $seoService)
     {
         $this->themeDataService = $themeDataService;
+        $this->seoService = $seoService;
     }
 
     /**
@@ -59,7 +69,22 @@ class ThemeController extends Controller
      */
     public function showThemesPage()
     {
-        return view('themes.index');
+        // Get all themes
+        $themes = $this->themeDataService->getThemes();
+        
+        // Get testimonials
+        $testimonials = $this->themeDataService->getTestimonials();
+        
+        // Get footer links
+        $footerLinks = $this->themeDataService->getFooterLinks();
+        
+        // Get social links
+        $socialLinks = $this->themeDataService->getSocialLinks();
+        
+        // Setup SEO data for the themes page
+        $this->seoService->setupThemesPageSeo();
+        
+        return view('themes.index', compact('themes', 'testimonials', 'footerLinks', 'socialLinks'));
     }
 
     /**
@@ -77,14 +102,21 @@ class ThemeController extends Controller
         }
         
         // Get related themes (excluding the current theme)
-        $relatedThemes = collect($this->themeDataService->getThemes())
-            ->filter(function($item) use ($theme) {
-                return $item['name'] !== $theme['name'];
-            })
-            ->take(3)
-            ->all();
+        $relatedThemes = $this->themeDataService->getRelatedThemes($slug, 3);
+        
+        // Get testimonials
+        $testimonials = $this->themeDataService->getTestimonials();
+        
+        // Get footer links
+        $footerLinks = $this->themeDataService->getFooterLinks();
+        
+        // Get social links
+        $socialLinks = $this->themeDataService->getSocialLinks();
+        
+        // Setup SEO data for the theme details page
+        $this->seoService->setupThemeDetailPageSeo($theme);
             
-        return view('themes.details', compact('theme', 'relatedThemes'));
+        return view('themes.details', compact('theme', 'relatedThemes', 'testimonials', 'footerLinks', 'socialLinks'));
     }
     
     /**

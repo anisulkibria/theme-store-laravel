@@ -23,23 +23,23 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                        <input type="text" name="name" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="Your name" required>
+                        <input type="text" name="name" id="name" class="text-gray-600 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="Your name" required>
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                        <input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="your@email.com" required>
+                        <input type="email" name="email" id="email" class="text-gray-600 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="your@email.com" required>
                     </div>
                     <div class="md:col-span-2">
                         <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                        <input type="text" name="subject" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="How can we help?" required>
+                        <input type="text" name="subject" id="subject" class="text-gray-600 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="How can we help?" required>
                     </div>
                     <div class="md:col-span-2">
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                        <textarea name="message" id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="Your message..." required></textarea>
+                        <textarea name="message" id="message" rows="4" class="text-gray-600 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition duration-150" placeholder="Your message..." required></textarea>
                     </div>
                 </div>
                 <div class="mt-6">
-                    <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-lg text-base font-medium text-white bg-gradient-to-r from-primary to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 shadow-lg">
+                    <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-full text-base font-medium text-white bg-gradient-to-r from-primary to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 shadow-lg">
                         Send Message
                     </button>
                 </div>

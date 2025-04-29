@@ -12,7 +12,7 @@
                 </div>
                 <p class="text-gray-600 mb-6 italic">{{ $testimonial['quote'] }}</p>
                 <div class="flex items-center">
-                    <div class="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
+                    <img src="{{ $testimonial['avatar'] }}" alt="User avatar" class="w-10 h-10 rounded-full mr-3">
                     <div>
                         <h4 class="font-medium text-gray-900">{{ $testimonial['name'] }}</h4>
                         <p class="text-sm text-gray-500">{{ $testimonial['title'] }}</p>

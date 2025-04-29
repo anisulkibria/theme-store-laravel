@@ -50,7 +50,7 @@
         <!-- Copyright -->
         <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center">
             <p class="text-xs text-gray-500">&copy; {{ date('Y') }} Ghost Theme - All Rights Reserved</p>
-            <p class="text-xs text-gray-500 mt-2 sm:mt-0">Designed and Developed by <a href="#" class="text-primary hover:text-indigo-400 transition duration-150">Anisul Kibria</a></p>
+            <p class="text-xs text-gray-500 mt-2 sm:mt-0">Designed and Developed by <a href="https://anisul.com" class="text-primary hover:text-indigo-400 transition duration-150">Anisul Kibria</a></p>
             <div class="flex space-x-4 mt-4 sm:mt-0">
                 @foreach($socialLinks as $social)
                 <a href="{{ $social['url'] }}" class="text-gray-400 hover:text-primary transition duration-150">

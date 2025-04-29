@@ -43,6 +43,33 @@
                         @endforeach
                     </div>
                     @endif
+                    
+                    <!-- Social Share -->
+                    <div class="border-t border-gray-200 pt-4">
+                        <h3 class="text-sm font-medium text-gray-900 mb-3">Share this theme</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($theme['name'] . ' - Premium Ghost Theme') }}" target="_blank" rel="noopener noreferrer" class="p-2 bg-[#1DA1F2] text-white rounded-full hover:bg-opacity-90 transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" class="p-2 bg-[#1877F2] text-white rounded-full hover:bg-opacity-90 transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" class="p-2 bg-[#0A66C2] text-white rounded-full hover:bg-opacity-90 transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M19.7 3H4.3A1.3 1.3 0 003 4.3v15.4A1.3 1.3 0 004.3 21h15.4a1.3 1.3 0 001.3-1.3V4.3A1.3 1.3 0 0019.7 3zM8.339 18.338H5.667v-8.59h2.672v8.59zM7.004 8.574a1.548 1.548 0 11-.002-3.096 1.548 1.548 0 01.002 3.096zm11.335 9.764H15.67v-4.177c0-.996-.017-2.278-1.387-2.278-1.389 0-1.601 1.086-1.601 2.206v4.249h-2.667v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.779 3.203 4.092v4.711z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                            <a href="mailto:?subject={{ urlencode($theme['name'] . ' - Premium Ghost Theme') }}&body={{ urlencode('Check out this premium Ghost theme: ' . url()->current()) }}" class="p-2 bg-gray-500 text-white rounded-full hover:bg-opacity-90 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Product Info -->
@@ -95,12 +122,12 @@
 
                     <!-- Action Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="{{ $theme['purchaseUrl'] }}" class="flex-1 py-3 px-6 bg-primary text-white rounded-lg hover:bg-indigo-700 transition duration-150 text-center font-medium">
+                        <a href="{{ $theme['purchaseUrl'] }}" class="flex-1 py-3 px-6 bg-primary text-white rounded-full hover:bg-indigo-700 transition duration-150 text-center font-medium">
                             Purchase Now
                         </a>
-                        <!-- <a href="#" class="flex-1 py-3 px-6 border border-gray-300 rounded-lg hover:border-primary transition duration-150 text-center font-medium">
+                        @if(isset($theme['demoUrl']))<a href="{{ $theme['demoUrl'] }}" class="flex-1 py-3 px-6 border border-gray-300 rounded-full hover:border-primary transition duration-150 text-center font-medium">
                             Live Preview
-                        </a> -->
+                        </a>@endif
                     </div>
                 </div>
             </div>
@@ -115,6 +142,12 @@
                         </button>
                         <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                             Features
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Documentation
+                        </button>
+                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Reviews
                         </button>
                     </nav>
                 </div>
@@ -182,6 +215,64 @@
                             @endif
                         </div>
                     </div>
+
+                    <!-- Documentation Tab -->
+                    <div id="documentation-tab" class="prose prose-lg max-w-none hidden">
+                        <h2>Documentation</h2>
+                        <p>Comprehensive documentation is included with your purchase to help you get started quickly and customize your theme.</p>
+                        
+                        <h3>Getting Started</h3>
+                        <ol>
+                            <li>Download the theme files from your purchase</li>
+                            <li>Upload the theme to your Ghost installation</li>
+                            <li>Activate the theme in your Ghost admin panel</li>
+                            <li>Configure theme settings as needed</li>
+                        </ol>
+
+                        <h3>Theme Customization</h3>
+                        <p>Learn how to customize your theme:</p>
+                        <ul>
+                            <li>Changing colors and typography</li>
+                            <li>Modifying layout options</li>
+                            <li>Adding custom CSS</li>
+                            <li>Configuring navigation menus</li>
+                        </ul>
+
+                        <h3>Support Resources</h3>
+                        <ul>
+                            <li>Detailed documentation PDF</li>
+                            <li>Video tutorials</li>
+                            <li>FAQ section</li>
+                            <li>Email support</li>
+                        </ul>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div id="reviews-tab" class="prose prose-lg max-w-none hidden">
+                        <h2>Customer Reviews</h2>
+                        <div class="space-y-8">
+                            @foreach($testimonials as $review)
+                            <div class="border-b border-gray-200 pb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex items-center">
+                                        @for($i = 0; $i < $review['rating']; $i++)
+                                        <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
+                                        @endfor
+                                    </div>
+                                    <span class="text-gray-500 ml-2">{{ $review['date'] }}</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">"{{ $review['quote'] }}"</p>
+                                <div class="flex items-center">
+                                    <img src="{{ $review['avatar'] }}" alt="User avatar" class="w-10 h-10 rounded-full mr-3">
+                                    <div>
+                                        <h4 class="font-medium">{{ $review['name'] }}</h4>
+                                        <p class="text-sm text-gray-500">{{ $review['title'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -226,7 +317,9 @@
             const tabs = document.querySelectorAll('button[class*="whitespace-nowrap"]');
             const tabContents = [
                 document.getElementById('description-tab'),
-                document.getElementById('features-tab')
+                document.getElementById('features-tab'),
+                document.getElementById('documentation-tab'),
+                document.getElementById('reviews-tab')
             ];
             
             tabs.forEach((tab, index) => {
