@@ -14,7 +14,7 @@
                 <div class="flex items-center">
                     <img src="{{ $testimonial['avatar'] }}" alt="User avatar" class="w-10 h-10 rounded-full mr-3">
                     <div>
-                        <h4 class="font-medium text-gray-900">{{ $testimonial['name'] }}</h4>
+                        <p class="font-medium text-gray-900">{{ $testimonial['name'] }}</p>
                         <p class="text-sm text-gray-500">{{ $testimonial['title'] }}</p>
                     </div>
                 </div>

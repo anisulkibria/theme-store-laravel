@@ -47,10 +47,14 @@
         </div>
         
         <!-- Social links -->
-        <div class="mt-12 flex justify-center space-x-6">
+        <div class="mt-12 flex justify-center space-x-6" role="navigation" aria-label="Social media links">
             @foreach($socialLinks as $social)
-            <a href="{{ $social['url'] }}" class="h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition duration-200 backdrop-blur-sm">
-                <i class="{{ $social['icon'] }} text-lg"></i>
+            <a href="{{ $social['url'] }}" 
+               class="h-12 w-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition duration-200 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+               aria-label="{{ $social['label'] }}"
+               title="{{ $social['label'] }}">
+                <i class="{{ $social['icon'] }} text-lg" aria-hidden="true"></i>
+                <span class="sr-only">{{ $social['label'] }}</span>
             </a>
             @endforeach
         </div>

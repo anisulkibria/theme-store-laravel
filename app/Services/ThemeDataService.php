@@ -15,7 +15,7 @@ class ThemeDataService
             [
                 'name' => 'Acceler',
                 'image' => '/images/acceler-1.webp',
-                'price' => '49',
+                'price' => '9',
                 'rating' => '4.9',
                 'description' => 'Bootstrap Ghost theme with 2 hours free customization service. Speed, simplicity, and style.',
                 'detailUrl' => '/themes/acceler',
@@ -63,7 +63,7 @@ class ThemeDataService
             [
                 'name' => 'Bloggie',
                 'image' => '/images/bloggie.jpg',
-                'price' => '89',
+                'price' => '19',
                 'rating' => '5.0',
                 'description' => 'Bloggie - A clean, minimal, and modern theme for the Ghost publishing platform. Designed for bloggers, content creators, and publishers who want a professional and elegant website',
                 'detailUrl' => '/themes/bloggie',
@@ -111,7 +111,7 @@ class ThemeDataService
             [
                 'name' => 'Colore',
                 'image' => '/images/colore-1-768x559.webp',
-                'price' => '49',
+                'price' => '9',
                 'rating' => '4.8',
                 'description' => 'A clean and simple premium Ghost theme with elegant design and modern features.',
                 'detailUrl' => '/themes/colore',
@@ -175,19 +175,23 @@ class ThemeDataService
         return [
             [
                 'icon' => 'fab fa-twitter',
-                'url' => '#'
+                'url' => '#',
+                'label' => 'Follow us on Twitter for latest updates and news'
             ],
             [
                 'icon' => 'fab fa-instagram',
-                'url' => '#'
+                'url' => '#',
+                'label' => 'View our Instagram for theme previews and tutorials'
             ],
             [
                 'icon' => 'fab fa-github',
-                'url' => '#'
+                'url' => '#',
+                'label' => 'Visit our GitHub for theme documentation and support'
             ],
             [
                 'icon' => 'fab fa-linkedin-in',
-                'url' => '#'
+                'url' => '#',
+                'label' => 'Connect with us on LinkedIn for business inquiries'
             ]
         ];
     }
@@ -232,25 +236,25 @@ class ThemeDataService
         $allThemes = $this->getThemes();
         $relatedThemes = [];
         $count = 0;
-        
+
         foreach ($allThemes as $theme) {
             // Skip the current theme
             $themeSlug = $this->getSlugFromUrl($theme['detailUrl']);
             if ($themeSlug === $currentThemeSlug) {
                 continue;
             }
-            
+
             $relatedThemes[] = $theme;
             $count++;
-            
+
             if ($count >= $limit) {
                 break;
             }
         }
-        
+
         return $relatedThemes;
     }
-    
+
     /**
      * Extract slug from the URL
      * 
@@ -277,4 +281,4 @@ class ThemeDataService
             'footerLinks' => $this->getFooterLinks(),
         ];
     }
-} 
+}

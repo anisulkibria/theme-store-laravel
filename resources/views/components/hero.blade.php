@@ -1,6 +1,6 @@
 <div class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-primary to-purple-800 text-white">
     <!-- Decorative elements -->
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10" aria-hidden="true">
         <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4">
             <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(300,300)">
@@ -19,7 +19,7 @@
     
     <div class="max-w-7xl mx-auto">
         <div class="relative z-10 py-16 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">Premium Ghost Themes</span>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
@@ -27,9 +27,9 @@
                         <span class="block bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">Ghost Blog</span>
                         <span class="block">With Elegance</span>
                     </h1>
-                    <p class="mt-6 text-lg md:text-xl max-w-2xl leading-relaxed text-indigo-100">
-                        Discover our collection of beautifully designed, responsive Ghost themes that transform your blog into a professional online presence.
-                    </p>
+                    <div class="mt-6 text-lg max-w-md text-indigo-100">
+                        <p>Discover our collection of beautifully designed, responsive Ghost themes that transform your blog into a professional online presence.</p>
+                    </div>
                     <div class="mt-10 flex flex-wrap gap-4">
                         <a href="#themes" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-primary bg-white hover:bg-gray-50 transition duration-150 shadow-lg">
                             Browse Themes
@@ -42,13 +42,34 @@
                 <div class="hidden md:block relative">
                     <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-color-accent/20 rounded-3xl transform rotate-3"></div>
                     <div class="relative z-10 hero-image">
-                        <img src="/images/colore-1-768x559.webp" alt="Ghost Theme Showcase" class="rounded-2xl shadow-2xl">
+                        <img src="/images/colore-1-768x559.webp" 
+                             alt="Ghost Theme Showcase" 
+                             class="rounded-2xl shadow-2xl"
+                             loading="eager"
+                             fetchpriority="high"
+                             width="768"
+                             height="559">
                         <div class="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform rotate-3">
                             <div class="flex items-center gap-3">
                                 <div class="flex -space-x-2">
-                                    <img class="h-8 w-8 rounded-full border-2 border-white" src="/images/avatar-1.jpeg" alt="">
-                                    <img class="h-8 w-8 rounded-full border-2 border-white" src="/images/avatar-2.jpeg" alt="">
-                                    <img class="h-8 w-8 rounded-full border-2 border-white" src="/images/avatar-3.jpeg" alt="">
+                                    <img class="h-8 w-8 rounded-full border-2 border-white" 
+                                         src="/images/avatar-1.jpeg" 
+                                         alt="User avatar"
+                                         loading="lazy"
+                                         width="32"
+                                         height="32">
+                                    <img class="h-8 w-8 rounded-full border-2 border-white" 
+                                         src="/images/avatar-2.jpeg" 
+                                         alt="User avatar"
+                                         loading="lazy"
+                                         width="32"
+                                         height="32">
+                                    <img class="h-8 w-8 rounded-full border-2 border-white" 
+                                         src="/images/avatar-3.jpeg" 
+                                         alt="User avatar"
+                                         loading="lazy"
+                                         width="32"
+                                         height="32">
                                 </div>
                                 <div class="text-xs text-gray-800">
                                     <div class="font-semibold">Trusted by 1,000+</div>
@@ -63,13 +84,28 @@
             <!-- Theme preview cards -->
             <div class="hidden md:flex mt-20 justify-center gap-6">
                 <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 shadow-lg transform -rotate-3 hover:rotate-0 transition-all duration-300">
-                    <img src="/images/agreeable-1-768x576.webp" alt="Theme Preview" class="w-40 h-24 object-cover rounded">
+                    <img src="/images/agreeable-1-768x576.webp" 
+                         alt="Theme Preview" 
+                         class="w-40 h-24 object-cover rounded"
+                         loading="lazy"
+                         width="160"
+                         height="96">
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 shadow-lg transform rotate-2 hover:rotate-0 transition-all duration-300">
-                    <img src="/images/acceler-1.webp" alt="Theme Preview" class="w-40 h-24 object-cover rounded">
+                    <img src="/images/acceler-1.webp" 
+                         alt="Theme Preview" 
+                         class="w-40 h-24 object-cover rounded"
+                         loading="lazy"
+                         width="160"
+                         height="96">
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 shadow-lg transform -rotate-1 hover:rotate-0 transition-all duration-300">
-                    <img src="/images/facile-768x572.webp" alt="Theme Preview" class="w-40 h-24 object-cover rounded">
+                    <img src="/images/facile-768x572.webp" 
+                         alt="Theme Preview" 
+                         class="w-40 h-24 object-cover rounded"
+                         loading="lazy"
+                         width="160"
+                         height="96">
                 </div>
             </div>
         </div>

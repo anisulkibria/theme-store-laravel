@@ -16,22 +16,31 @@
                 </a>
             </div>
             <div class="md:hidden flex items-center">
-                <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-primary transition duration-150">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button type="button" 
+                        id="mobile-menu-button" 
+                        class="text-gray-700 hover:text-primary transition duration-150"
+                        aria-label="Toggle mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
+                    <span class="sr-only">Toggle mobile menu</span>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Mobile menu, show/hide based on menu state -->
-    <div id="mobile-menu" class="md:hidden hidden">
+    <div id="mobile-menu" 
+         class="md:hidden hidden" 
+         role="menu" 
+         aria-labelledby="mobile-menu-button">
         <div class="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg mx-4">
-            <a href="/#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
+            <a href="/#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50" role="menuitem">
                 Contact
             </a>
-            <a href="/themes" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-indigo-700">
+            <a href="/themes" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-indigo-700" role="menuitem">
                 Themes
             </a>
         </div>
@@ -45,7 +54,8 @@
             
             // Toggle mobile menu visibility when hamburger is clicked
             mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
+                const isExpanded = mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
             });
             
             // Close mobile menu when clicking outside of it
@@ -55,6 +65,7 @@
                 
                 if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
             });
         });
