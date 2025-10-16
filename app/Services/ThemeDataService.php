@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Theme;
+use App\Models\Testimonial;
+
 class ThemeDataService
 {
     /**
@@ -11,123 +14,32 @@ class ThemeDataService
      */
     public function getThemes(): array
     {
-        return [
-            [
-                'name' => 'Acceler',
-                'image' => '/images/acceler-1.webp',
-                'price' => '9',
-                'rating' => '4.9',
-                'description' => 'Bootstrap Ghost theme with 2 hours free customization service. Speed, simplicity, and style.',
-                'detailUrl' => '/themes/acceler',
-                'demoUrl' => 'https://acceler.ghost-theme.com',
-                'purchaseUrl' => 'https://anisul.lemonsqueezy.com/buy/d5cc9715-97ed-4e05-bfdc-0bee0bd5ed69',
-                'sales' => '50+',
-                'fullDescription' => 'Acceler is a modern, responsive Ghost theme built with Bootstrap 5. It\'s designed to provide a fast, clean, and professional look for your blog or content website. The theme comes with a variety of features and customization options to help you create the perfect website for your needs.',
-                'keyBenefits' => [
-                    'Lightning-fast performance optimized for Ghost CMS',
-                    'Mobile-first responsive design that works on all devices',
-                    'Built with Bootstrap 5 for easy customization',
-                    'Dark mode support for better reading experience',
-                    'SEO optimized structure',
-                    'Regular updates and support'
-                ],
-                'technicalDetails' => [
-                    'Compatible with Ghost 5.x',
-                    'Built with Bootstrap 5',
-                    'Uses modern CSS features',
-                    'Optimized for performance',
-                    'Includes documentation'
-                ],
-                'features' => [
-                    'Responsive Design',
-                    'Bootstrap 5 Framework',
-                    'Dark Mode Support',
-                    'Customizable Colors'
-                ],
-                'designFeatures' => [
-                    'Responsive design for all devices',
-                    'Dark mode support',
-                    'Customizable color schemes',
-                    'Typography optimization'
-                ],
-                'technicalFeatures' => [
-                    'Bootstrap 5 integration',
-                    'SEO optimized structure',
-                    'Fast loading performance',
-                    'Cross-browser compatibility'
-                ],
-                'previewImages' => [
-                    '/images/acceler-1.webp'
-                ]
-            ],
-            [
-                'name' => 'Bloggie',
-                'image' => '/images/bloggie.jpg',
-                'price' => '19',
-                'rating' => '5.0',
-                'description' => 'Bloggie - A clean, minimal, and modern theme for the Ghost publishing platform. Designed for bloggers, content creators, and publishers who want a professional and elegant website',
-                'detailUrl' => '/themes/bloggie',
-                'purchaseUrl' => 'https://shop.ghost-theme.com/buy/96bf281d-23e3-4767-ae4c-c08180f8c369',
-                'demoUrl' => 'https://bloggie.ghost-theme.com',
-                'sales' => '30+',
-                'fullDescription' => 'Bloggie ia a clean, minimal, and modern theme for the Ghost publishing platform. Designed for bloggers, content creators, and publishers who want a professional and elegant website.',
-                'keyBenefits' => [
-                    'Lightning-fast performance optimized for Ghost CMS',
-                    'Mobile-first responsive design that works on all devices',
-                    'Built with TailwindCSS for easy customization',
-                    'Dark mode support for better reading experience',
-                    'SEO optimized structure',
-                    'Regular updates and support'
-                ],
-                'technicalDetails' => [
-                    'Compatible with Ghost 5.x',
-                    'Built with TailwindCSS',
-                    'Uses modern CSS features',
-                    'Optimized for performance',
-                    'Includes documentation'
-                ],
-                'features' => [
-                    'Responsive Design',
-                    'TailwindCSS',
-                    'Dark Mode Support',
-                    'Customizable Colors'
-                ],
-                'designFeatures' => [
-                    'Responsive design for all devices',
-                    'Dark mode support',
-                    'Customizable color schemes',
-                    'Typography optimization'
-                ],
-                'technicalFeatures' => [
-                    'TailwindCSS integration',
-                    'SEO optimized structure',
-                    'Fast loading performance',
-                    'Cross-browser compatibility'
-                ],
-                'previewImages' => [
-                    '/images/bloggie.jpg'
-                ]
-            ],
-            [
-                'name' => 'Colore',
-                'image' => '/images/colore-1-768x559.webp',
-                'price' => '9',
-                'rating' => '4.8',
-                'description' => 'A clean and simple premium Ghost theme with elegant design and modern features.',
-                'detailUrl' => '/themes/colore',
-                'purchaseUrl' => 'https://anisul.lemonsqueezy.com/buy/d5cc9715-97ed-4e05-bfdc-0bee0bd5ed69',
-                'sales' => '15+',
-                'features' => [
-                    'Colorful Design',
-                    'Modern Layout',
-                    'Custom Color Options',
-                    'Membership Ready'
-                ],
-                'previewImages' => [
-                    '/images/colore-1-768x559.webp',
-                ]
-            ]
-        ];
+        return Theme::active()
+            ->ordered()
+            ->get()
+            ->map(function ($theme) {
+                return [
+                    'name' => $theme->name,
+                    'image' => $theme->image ? $this->getImageUrl($theme->image) : null,
+                    'price' => $theme->price,
+                    'rating' => $theme->rating,
+                    'description' => $theme->description,
+                    'detailUrl' => $theme->detail_url,
+                    'demoUrl' => $theme->demo_url,
+                    'purchaseUrl' => $theme->purchase_url,
+                    'sales' => $theme->sales,
+                    'fullDescription' => $theme->full_description,
+                    'keyBenefits' => $theme->key_benefits ?? [],
+                    'technicalDetails' => $theme->technical_details ?? [],
+                    'features' => $theme->features ?? [],
+                    'designFeatures' => $theme->design_features ?? [],
+                    'technicalFeatures' => $theme->technical_features ?? [],
+                    'previewImages' => $theme->preview_images ? array_map(function($image) {
+                        return $this->getImageUrl($image);
+                    }, $theme->preview_images) : [],
+                ];
+            })
+            ->toArray();
     }
 
     /**
@@ -137,32 +49,20 @@ class ThemeDataService
      */
     public function getTestimonials(): array
     {
-        return [
-            [
-                'quote' => 'The Acceler theme completely transformed my blog. It\'s fast, beautiful, and my readers love the experience.',
-                'name' => 'Marlon Misra',
-                'title' => 'Cofounder/CEO',
-                'avatar' => '/images/avatar-1.jpeg',
-                'rating' => 5,
-                'date' => '2 months ago'
-            ],
-            [
-                'quote' => 'I\'ve tried many Ghost themes, but the quality and support I get from Ghost Theme is unmatched. Highly recommended!',
-                'name' => 'Sarah Kloboves',
-                'title' => 'Content and Marketing Manager',
-                'avatar' => '/images/avatar-2.jpeg',
-                'rating' => 5,
-                'date' => '1 month ago'
-            ],
-            [
-                'quote' => 'The customization service was a game-changer for me. I got exactly what I wanted without needing to touch any code.',
-                'name' => 'Fouad AlFarhan',
-                'title' => 'Co-Founder',
-                'avatar' => '/images/avatar-3.jpeg',
-                'rating' => 5,
-                'date' => '2 weeks ago'
-            ]
-        ];
+        return Testimonial::active()
+            ->ordered()
+            ->get()
+            ->map(function ($testimonial) {
+                return [
+                    'quote' => $testimonial->quote,
+                    'name' => $testimonial->name,
+                    'title' => $testimonial->title,
+                    'avatar' => $testimonial->avatar,
+                    'rating' => $testimonial->rating,
+                    'date' => $testimonial->date,
+                ];
+            })
+            ->toArray();
     }
 
     /**
@@ -265,6 +165,23 @@ class ThemeDataService
     {
         $parts = explode('/', rtrim($url, '/'));
         return end($parts);
+    }
+
+    /**
+     * Get the full URL for an image path
+     * 
+     * @param string $imagePath
+     * @return string
+     */
+    private function getImageUrl(string $imagePath): string
+    {
+        // If the path starts with /images/, it's a static image
+        if (str_starts_with($imagePath, '/images/')) {
+            return asset($imagePath);
+        }
+        
+        // Otherwise, it's an uploaded image stored in storage
+        return asset('storage/' . $imagePath);
     }
 
     /**
