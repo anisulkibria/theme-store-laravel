@@ -130,7 +130,8 @@ class ThemeController extends Controller
         $themes = $this->themeDataService->getThemes();
         
         foreach ($themes as $theme) {
-            $themeSlug = $this->generateSlug($theme['name']);
+            // Extract slug from the detail_url field
+            $themeSlug = $this->extractSlugFromUrl($theme['detailUrl']);
             
             if ($themeSlug === $slug) {
                 // Add the slug to the theme array
@@ -143,13 +144,14 @@ class ThemeController extends Controller
     }
     
     /**
-     * Generate a URL-friendly slug from a string.
+     * Extract slug from the detail URL.
      *
-     * @param string $name
+     * @param string $url
      * @return string
      */
-    private function generateSlug($name)
+    private function extractSlugFromUrl($url)
     {
-        return strtolower(str_replace(' ', '-', $name));
+        $parts = explode('/', rtrim($url, '/'));
+        return end($parts);
     }
 } 

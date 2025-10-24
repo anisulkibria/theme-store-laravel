@@ -16,7 +16,7 @@
                         <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <span class="text-gray-900">{{ $theme['name'] }} Theme</span>
+                        <span class="text-gray-900">{{ $theme['name'] }}</span>
                     </li>
                 </ol>
             </nav>
@@ -75,7 +75,7 @@
                 <!-- Product Info -->
                 <div class="space-y-8">
                     <div>
-                        <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ $theme['name'] }} Theme</h1>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ $theme['name'] }}</h1>
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex items-center">
                                 <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
@@ -90,17 +90,19 @@
                     </div>
 
                     <!-- Features List -->
-                    @if(isset($theme['features']))
+                    @if(isset($theme['features']) && is_array($theme['features']) && count(array_filter($theme['features'])) > 0)
                     <div class="space-y-4">
                         <h3 class="text-lg font-semibold text-gray-900">Key Features</h3>
                         <ul class="space-y-3">
                             @foreach($theme['features'] as $feature)
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-600">{{ $feature }}</span>
-                            </li>
+                                @if(!empty($feature))
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-600">{{ $feature }}</span>
+                                </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>
@@ -132,149 +134,14 @@
                 </div>
             </div>
 
-            <!-- Additional Information -->
+            <!-- Theme Details -->
+            @if(isset($theme['detailsContent']) && !empty($theme['detailsContent']))
             <div class="mt-20">
-                <!-- Tabs -->
-                <div class="border-b border-gray-200">
-                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-                        <button class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Description
-                        </button>
-                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Features
-                        </button>
-                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Documentation
-                        </button>
-                        <button class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                            Reviews
-                        </button>
-                    </nav>
-                </div>
-
-                <!-- Tab Content -->
-                <div class="mt-8">
-                    <!-- Description Tab -->
-                    <div id="description-tab" class="prose prose-lg max-w-none">
-                        <h2>About {{ $theme['name'] }} Theme</h2>
-                        <p>{{ $theme['fullDescription'] ?? $theme['description'] }}</p>
-                        
-                        @if(isset($theme['keyBenefits']))
-                        <h3>Key Benefits</h3>
-                        <ul>
-                            @foreach($theme['keyBenefits'] as $benefit)
-                            <li>{{ $benefit }}</li>
-                            @endforeach
-                        </ul>
-                        @endif
-
-                        @if(isset($theme['technicalDetails']))
-                        <h3>Technical Details</h3>
-                        <ul>
-                            @foreach($theme['technicalDetails'] as $detail)
-                            <li>{{ $detail }}</li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </div>
-
-                    <!-- Features Tab -->
-                    <div id="features-tab" class="prose prose-lg max-w-none hidden">
-                        <h2>Detailed Features</h2>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            @if(isset($theme['designFeatures']))
-                            <div>
-                                <h3 class="text-xl font-semibold mb-4">Design Features</h3>
-                                <ul class="space-y-3">
-                                    @foreach($theme['designFeatures'] as $feature)
-                                    <li class="flex items-start">
-                                        <svg class="w-5 h-5 text-primary mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span>{{ $feature }}</span>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                            
-                            @if(isset($theme['technicalFeatures']))
-                            <div>
-                                <h3 class="text-xl font-semibold mb-4">Technical Features</h3>
-                                <ul class="space-y-3">
-                                    @foreach($theme['technicalFeatures'] as $feature)
-                                    <li class="flex items-start">
-                                        <svg class="w-5 h-5 text-primary mr-2 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span>{{ $feature }}</span>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Documentation Tab -->
-                    <div id="documentation-tab" class="prose prose-lg max-w-none hidden">
-                        <h2>Documentation</h2>
-                        <p>Comprehensive documentation is included with your purchase to help you get started quickly and customize your theme.</p>
-                        
-                        <h3>Getting Started</h3>
-                        <ol>
-                            <li>Download the theme files from your purchase</li>
-                            <li>Upload the theme to your Ghost installation</li>
-                            <li>Activate the theme in your Ghost admin panel</li>
-                            <li>Configure theme settings as needed</li>
-                        </ol>
-
-                        <h3>Theme Customization</h3>
-                        <p>Learn how to customize your theme:</p>
-                        <ul>
-                            <li>Changing colors and typography</li>
-                            <li>Modifying layout options</li>
-                            <li>Adding custom CSS</li>
-                            <li>Configuring navigation menus</li>
-                        </ul>
-
-                        <h3>Support Resources</h3>
-                        <ul>
-                            <li>Detailed documentation PDF</li>
-                            <li>Video tutorials</li>
-                            <li>FAQ section</li>
-                            <li>Email support</li>
-                        </ul>
-                    </div>
-
-                    <!-- Reviews Tab -->
-                    <div id="reviews-tab" class="prose prose-lg max-w-none hidden">
-                        <h2>Customer Reviews</h2>
-                        <div class="space-y-8">
-                            @foreach($testimonials as $review)
-                            <div class="border-b border-gray-200 pb-8">
-                                <div class="flex items-center mb-4">
-                                    <div class="flex items-center">
-                                        @for($i = 0; $i < $review['rating']; $i++)
-                                        <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
-                                        @endfor
-                                    </div>
-                                    <span class="text-gray-500 ml-2">{{ $review['date'] }}</span>
-                                </div>
-                                <p class="text-gray-600 mb-4">"{{ $review['quote'] }}"</p>
-                                <div class="flex items-center">
-                                    <img src="{{ $review['avatar'] }}" alt="User avatar" class="w-10 h-10 rounded-full mr-3">
-                                    <div>
-                                        <h4 class="font-medium">{{ $review['name'] }}</h4>
-                                        <p class="text-sm text-gray-500">{{ $review['title'] }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
+                <div class="prose prose-md max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-li:text-gray-700 prose-li:mb-1 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto">
+                    {!! $theme['detailsContent'] !!}
                 </div>
             </div>
+            @endif
 
             <!-- Related Themes -->
             @if(isset($relatedThemes) && count($relatedThemes) > 0)
@@ -310,37 +177,4 @@
             @endif
         </div>
     </div>
-    
-    <!-- Add JavaScript for tab functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('button[class*="whitespace-nowrap"]');
-            const tabContents = [
-                document.getElementById('description-tab'),
-                document.getElementById('features-tab'),
-                document.getElementById('documentation-tab'),
-                document.getElementById('reviews-tab')
-            ];
-            
-            tabs.forEach((tab, index) => {
-                tab.addEventListener('click', () => {
-                    // Update active tab
-                    tabs.forEach(t => {
-                        t.classList.remove('border-primary', 'text-primary');
-                        t.classList.add('border-transparent', 'text-gray-500');
-                    });
-                    
-                    tab.classList.remove('border-transparent', 'text-gray-500');
-                    tab.classList.add('border-primary', 'text-primary');
-                    
-                    // Show selected tab content
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-                    
-                    tabContents[index].classList.remove('hidden');
-                });
-            });
-        });
-    </script>
 </x-app-layout> 

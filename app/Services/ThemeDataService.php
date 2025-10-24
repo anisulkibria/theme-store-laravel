@@ -28,6 +28,7 @@ class ThemeDataService
                     'demoUrl' => $theme->demo_url,
                     'purchaseUrl' => $theme->purchase_url,
                     'sales' => $theme->sales,
+                    'detailsContent' => $theme->details_content,
                     'fullDescription' => $theme->full_description,
                     'keyBenefits' => $theme->key_benefits ?? [],
                     'technicalDetails' => $theme->technical_details ?? [],

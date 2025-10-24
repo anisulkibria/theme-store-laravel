@@ -44,11 +44,10 @@ class ThemeResource extends Resource
                             ->suffix('+'),
                         Components\Textarea::make('description')
                             ->required()
-                            ->rows(3),
-                        Components\Textarea::make('full_description')
-                            ->rows(5),
+                            ->rows(3)
+                            ->columnSpanFull(),
                     ])
-                    ->columns(1),
+                    ->columns(2),
 
                 SchemaComponents\Section::make('Media')
                     ->schema([
@@ -66,7 +65,28 @@ class ThemeResource extends Resource
                     ])
                     ->columns(1),
 
-                    SchemaComponents\Section::make('URLs')
+                SchemaComponents\Section::make('Theme Details')
+                    ->schema([
+                        Components\RichEditor::make('details_content')
+                            ->label('')
+                            ->toolbarButtons([
+                                'bold',
+                                'italic',
+                                'underline',
+                                'strike',
+                                'link',
+                                'h2',
+                                'h3',
+                                'bulletList',
+                                'orderedList',
+                                'blockquote',
+                                'codeBlock',
+                            ])
+                            ->columnSpanFull(),
+                    ])
+                    ->collapsible(),
+
+                SchemaComponents\Section::make('URLs')
                     ->schema([
                         Components\TextInput::make('detail_url')
                             ->required()
@@ -82,6 +102,25 @@ class ThemeResource extends Resource
                     ])
                     ->columns(1),
 
+                SchemaComponents\Section::make('Key Features')
+                    ->schema([
+                        Components\Repeater::make('features')
+                            ->label('Features List')
+                            ->schema([
+                                Components\TextInput::make('item')
+                                    ->label('Feature')
+                                    ->hiddenLabel(),
+                            ])
+                            ->addActionLabel('Add Feature')
+                            ->columnSpanFull()
+                            ->defaultItems(0)
+                            ->reorderable()
+                            ->collapsible(false)
+                            ->itemLabel(fn (array $state): ?string => $state['item'] ?? null),
+                    ])
+                    ->columns(1)
+                    ->collapsible(),
+
                 SchemaComponents\Section::make('Settings')
                     ->schema([
                         Components\Toggle::make('is_active')
@@ -91,7 +130,8 @@ class ThemeResource extends Resource
                             ->default(0),
                     ])
                     ->columns(2),
-            ]);
+            ])
+            ->columns(2);
     }
 
     public static function table(Tables\Table $table): Tables\Table

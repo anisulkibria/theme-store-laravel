@@ -61,7 +61,7 @@ class GenerateSitemap extends Command
             // Add theme pages
             $themes = $themeDataService->getThemes();
             foreach ($themes as $theme) {
-                $slug = $this->generateSlug($theme['name']);
+                $slug = $this->extractSlugFromUrl($theme['detailUrl']);
                 $xml .= $this->formatUrlXml(
                     $baseUrl . "/themes/{$slug}", 
                     '0.9', 
@@ -101,13 +101,14 @@ class GenerateSitemap extends Command
     }
     
     /**
-     * Generate a slug from a theme name
+     * Extract slug from the detail URL
      *
-     * @param string $name
+     * @param string $url
      * @return string
      */
-    private function generateSlug($name)
+    private function extractSlugFromUrl($url)
     {
-        return strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $name));
+        $parts = explode('/', rtrim($url, '/'));
+        return end($parts);
     }
 }

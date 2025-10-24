@@ -17,6 +17,7 @@ class Theme extends Model
         'demo_url',
         'purchase_url',
         'sales',
+        'details_content',
         'full_description',
         'key_benefits',
         'technical_details',
@@ -58,7 +59,18 @@ class Theme extends Model
     protected function features(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $value ? json_decode($value, true) ?? [] : [],
+            get: function ($value) {
+                if (!$value) return [];
+                $decoded = json_decode($value, true) ?? [];
+                // Handle both old format (array of strings) and new format (array with 'item' key from Repeater)
+                $features = array_map(function($item) {
+                    return is_array($item) && isset($item['item']) ? $item['item'] : $item;
+                }, $decoded);
+                // Filter out empty values
+                return array_values(array_filter($features, function($feature) {
+                    return !empty($feature) && is_string($feature);
+                }));
+            },
             set: fn ($value) => json_encode($value),
         );
     }

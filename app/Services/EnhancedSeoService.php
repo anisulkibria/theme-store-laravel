@@ -91,11 +91,18 @@ class EnhancedSeoService
         $description = $baseDescription;
         
         // Add features to description if available
-        if (isset($theme['features']) && count($theme['features']) > 0) {
-            $featuresText = ' Features include: ' . implode(', ', array_slice($theme['features'], 0, 3));
-            // Make sure description with features doesn't exceed reasonable meta description length
-            if (strlen($baseDescription . $featuresText) <= 160) {
-                $description .= $featuresText;
+        if (isset($theme['features']) && is_array($theme['features']) && count($theme['features']) > 0) {
+            // Filter out empty values and ensure all items are strings
+            $validFeatures = array_filter($theme['features'], function($feature) {
+                return !empty($feature) && is_string($feature);
+            });
+            
+            if (count($validFeatures) > 0) {
+                $featuresText = ' Features include: ' . implode(', ', array_slice($validFeatures, 0, 3));
+                // Make sure description with features doesn't exceed reasonable meta description length
+                if (strlen($baseDescription . $featuresText) <= 160) {
+                    $description .= $featuresText;
+                }
             }
         }
         
@@ -108,15 +115,26 @@ class EnhancedSeoService
         ];
         
         // Add some features as keywords if available
-        if (isset($theme['features']) && count($theme['features']) > 0) {
-            foreach (array_slice($theme['features'], 0, 3) as $feature) {
+        if (isset($theme['features']) && is_array($theme['features']) && count($theme['features']) > 0) {
+            // Filter out empty values and ensure all items are strings
+            $validFeatures = array_filter($theme['features'], function($feature) {
+                return !empty($feature) && is_string($feature);
+            });
+            
+            foreach (array_slice($validFeatures, 0, 3) as $feature) {
                 $keywordParts[] = strtolower($feature);
             }
         }
         
         // Use theme image for social shares if available
         $image = isset($theme['image']) ? asset($theme['image']) : asset('/images/og-image.jpg');
-        $slug = $theme['slug'] ?? strtolower(str_replace(' ', '-', $theme['name']));
+        
+        // Extract slug from detail_url if available, otherwise use the slug field
+        if (isset($theme['detailUrl'])) {
+            $slug = $this->extractSlugFromUrl($theme['detailUrl']);
+        } else {
+            $slug = $theme['slug'] ?? strtolower(str_replace(' ', '-', $theme['name']));
+        }
         $url = url("/themes/{$slug}");
         
         SEOTools::setTitle($title);
@@ -336,5 +354,17 @@ class EnhancedSeoService
         SEOTools::jsonLd()->addImage(asset('/images/og-image.jpg'));
         SEOTools::jsonLd()->setType('WebPage');
         SEOTools::jsonLd()->addValue('url', $url);
+    }
+    
+    /**
+     * Extract slug from the detail URL
+     *
+     * @param string $url
+     * @return string
+     */
+    private function extractSlugFromUrl($url)
+    {
+        $parts = explode('/', rtrim($url, '/'));
+        return end($parts);
     }
 } 
