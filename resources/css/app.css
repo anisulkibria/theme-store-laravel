@@ -42,7 +42,8 @@ html, body, p, li {
 /* Use the new serif for page titles and section headings */
 h1, h2, h3,
 .page-title,
-.section-title {
+.section-title,
+.font-family-asv {
     font-family: 'ASV', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 

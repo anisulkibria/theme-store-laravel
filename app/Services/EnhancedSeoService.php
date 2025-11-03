@@ -13,8 +13,8 @@ class EnhancedSeoService
      */
     public function setupHomePageSeo(): void
     {
-        $title = 'Premium Ghost CMS Themes | Beautiful and Responsive Designs';
-        $description = 'Elevate your Ghost blog with our collection of premium, responsive themes. Designed for performance, SEO, and user experience.';
+        $title = 'Ghost Theme | Premium Ghost CMS Themes';
+        $description = 'Elevate your Ghost blog with our premium, responsive themes - designed for performance, SEO, and user experience.';
         
         SEOTools::setTitle($title);
         SEOTools::setDescription($description);
@@ -46,8 +46,8 @@ class EnhancedSeoService
      */
     public function setupThemesPageSeo(): void
     {
-        $title = 'Browse Our Premium Ghost Themes | Modern & Responsive';
-        $description = 'Explore our collection of premium Ghost themes. Each theme is crafted with attention to detail, ensuring a perfect showcase for your content.';
+        $title = 'Premium Ghost Themes | Ghost Theme';
+        $description = 'Explore premium Ghost themes. Each theme is crafted with attention to detail, ensuring a perfect showcase for your content.';
         
         SEOTools::setTitle($title);
         SEOTools::setDescription($description);
@@ -87,7 +87,7 @@ class EnhancedSeoService
         }
         
         // Create a more descriptive meta description using the theme description
-        $baseDescription = $theme['description'] ?? "Discover the {$theme['name']} theme for Ghost CMS";
+        $baseDescription = $theme['description'] ?? "Discover the {$theme['name']} for Ghost CMS";
         $description = $baseDescription;
         
         // Add features to description if available

@@ -4,7 +4,7 @@
         <div class="relative z-10 py-16 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">Premium Ghost Themes</span>
+                    <h3 class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">Ghost CMS Themes</h3>
                     <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
                         <span class="block">Elevate Your Ghost Blog With Elegance</span>
                     </h1>

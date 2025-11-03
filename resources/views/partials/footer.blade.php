@@ -7,9 +7,12 @@
             <!-- Brand column -->
             <div class="md:col-span-1">
                 <div>
-                    <img src="/images/ghost-theme-logo.png" alt="Ghost Theme Logo" class="h-10 w-auto mb-4">
+                    <a href="/">
+                        <h2 class="text-3xl font-asv font-bold mb-2">Ghost Theme</h2>
+                    </a>
+                    {{-- <img src="/images/ghost-theme-logo.png" alt="Ghost Theme Logo" class="h-10 w-auto mb-4"> --}}
                     <p class="text-gray-800 text-sm leading-relaxed mb-6">
-                        Premium Ghost CMS themes for bloggers and content creators.
+                        Ghost Theme - Premium Ghost CMS themes for bloggers and content creators.
                     </p>
                 </div>
             </div>
