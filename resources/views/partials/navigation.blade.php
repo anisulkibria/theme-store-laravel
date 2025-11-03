@@ -1,9 +1,10 @@
-<nav class="glass-nav sticky top-0 z-50 border-b border-gray-200">
+<nav class="glass-nav sticky top-0 z-50 border-b border-[#211D1D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
+        <div class="flex justify-between py-3">
             <div class="flex items-center">
                 <a href="/" class="flex items-center">
-                    <img src="/images/ghost-theme-logo.png" alt="Ghost Theme Logo" class="h-10 w-auto mr-3">
+                    <h2 class="text-3xl font-asv font-bold">Ghost Theme</h2>
+                    {{-- <img src="/images/ghost-theme-logo.png" alt="Ghost Theme Logo" class="h-10 w-auto mr-3"> --}}
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-10">

@@ -13,6 +13,39 @@
     --color-accent: #8B5CF6;
 }
 
+/* Affinity Serif Variable font (asv.woff2/woff/ttf in public/fonts) */
+@font-face {
+    font-family: 'ASV';
+    src: url('/fonts/asv.woff2') format('woff2'),
+         url('/fonts/asv.woff') format('woff'),
+         url('/fonts/asv.ttf') format('truetype');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CS';
+    src: url('/fonts/cs.woff2') format('woff2'),
+         url('/fonts/cs.woff') format('woff'),
+         url('/fonts/cs.ttf') format('truetype');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body, p, li {
+    font-family: 'CS', Inter, Sans serif;
+    font-weight: 300;
+}
+
+/* Use the new serif for page titles and section headings */
+h1, h2, h3,
+.page-title,
+.section-title {
+    font-family: 'ASV', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
 /* Fix for rich editor adding p tags inside li elements */
 .prose li > p {
     margin: 0;

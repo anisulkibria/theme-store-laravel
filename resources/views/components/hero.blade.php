@@ -1,31 +1,12 @@
-<div class="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-primary to-purple-800 text-white">
-    <!-- Decorative elements -->
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10" aria-hidden="true">
-        <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4">
-            <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(300,300)">
-                    <path d="M140.5,-191.2C177.8,-168.1,201.3,-123.1,223,-75.7C244.8,-28.3,264.9,21.5,253.6,64C242.2,106.5,199.5,141.8,156.3,170.8C113.1,199.8,69.5,222.5,18.7,234.9C-32.1,247.3,-90,249.5,-131.2,223.5C-172.4,197.5,-197,143.3,-216.4,87.4C-235.9,31.4,-250.2,-26.3,-235.7,-74.4C-221.3,-122.5,-178.1,-161.1,-133,-182.5C-87.9,-203.9,-43.9,-208.2,2.1,-211.2C48.2,-214.2,103.2,-214.3,140.5,-191.2Z" fill="currentColor" />
-                </g>
-            </svg>
-        </div>
-        <div class="absolute bottom-0 left-0 transform -translate-x-1/3 translate-y-1/4">
-            <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(300,300)">
-                    <path d="M144.8,-188.4C187.6,-160.4,222.2,-118.1,241.4,-69.8C260.6,-21.5,264.3,32.7,244.5,78.5C224.7,124.3,181.2,161.6,133.8,188.2C86.4,214.8,35,230.6,-8.9,242.1C-52.8,253.6,-89.2,260.6,-134.6,243.4C-180,226.2,-234.4,184.7,-255.8,130.8C-277.2,76.9,-265.8,10.5,-245.8,-44.9C-225.8,-100.3,-197.2,-144.6,-157.3,-174C-117.3,-203.4,-65.9,-217.8,-13.3,-201.2C39.3,-184.7,101.9,-216.3,144.8,-188.4Z" fill="currentColor" />
-                </g>
-            </svg>
-        </div>
-    </div>
+<div class="relative overflow-hidden bg-black text-white">
     
     <div class="max-w-7xl mx-auto">
         <div class="relative z-10 py-16 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6">Premium Ghost Themes</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                        <span class="block">Elevate Your</span>
-                        <span class="block bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">Ghost Blog</span>
-                        <span class="block">With Elegance</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                        <span class="block">Elevate Your Ghost Blog With Elegance</span>
                     </h1>
                     <div class="mt-6 text-lg max-w-md text-indigo-100">
                         <p>Discover our collection of beautifully designed, responsive Ghost themes that transform your blog into a professional online presence.</p>

@@ -11,7 +11,7 @@
                 <div class="flex-grow flex flex-col">
                     <!-- Thumbnail -->
                     <a href="{{ $theme['detailUrl'] }}" class="block relative pb-64">
-                        <img class="absolute h-full w-full object-cover" src="{{ $theme['image'] }}" alt="{{ $theme['name'] }} theme preview">
+                        <img class="absolute h-full w-full object-contain" src="{{ $theme['image'] }}" alt="{{ $theme['name'] }} theme preview">
                         <div class="absolute inset-0 bg-gradient-to-t from-black opacity-60"></div>
                         <div class="absolute bottom-4 left-4 text-white">
                             <span class="px-2 py-1 text-xs font-semibold bg-primary rounded-full">Premium</span>

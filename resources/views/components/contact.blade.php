@@ -1,6 +1,5 @@
-<div id="contact" class="py-16 md:py-24 relative overflow-hidden">
+<div id="contact" class="py-16 md:py-24 relative overflow-hidden bg-black">
     <!-- Background gradient and shapes -->
-    <div class="absolute inset-0 bg-linear-to-br from-gray-900 via-color-secondary to-indigo-900"></div>
     <div class="absolute top-0 right-0 opacity-10">
         <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(300,300)">
