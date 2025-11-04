@@ -75,7 +75,7 @@
                 <!-- Product Info -->
                 <div class="space-y-8">
                     <div>
-                        <h1 class="text-3xl font-bold text-white mb-4">{{ $theme['name'] }}</h1>
+                        <h1 class="text-5xl font-bold text-white mb-4">{{ $theme['name'] }}</h1>
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex items-center">
                                 <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
@@ -137,7 +137,7 @@
             <!-- Theme Details -->
             @if(isset($theme['detailsContent']) && !empty($theme['detailsContent']))
             <div class="mt-20">
-                <div class="prose prose-md max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-100 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-gray-100 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-li:text-gray-100 prose-li:mb-1 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-200 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto">
+                <div class="prose text-white prose-md max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h2:text-white prose-h3:text-white prose-hr:border-t-gray-900 prose-p:text-gray-100 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-gray-100 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-li:text-gray-100 prose-li:mb-1 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-200 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto">
                     {!! $theme['detailsContent'] !!}
                 </div>
             </div>
