@@ -1,8 +1,8 @@
-<div id="features" class="py-16 md:py-24 bg-gray-50">
+<div id="features" class="py-16 md:py-24 bg-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Why Choose Our Themes?</h2>
-            <p class="text-lg text-gray-600">Every theme is built with modern standards and best practices</p>
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">Why Choose Our Themes?</h2>
+            <p class="text-lg text-gray-100">Every theme is built with modern standards and best practices</p>
         </div>
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div class="text-center bg-white p-8 rounded-xl shadow-sm">

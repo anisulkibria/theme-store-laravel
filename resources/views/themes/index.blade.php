@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="py-16 md:py-24 bg-white">
+    <div class="py-16 md:py-24 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Browse Our Premium Ghost Themes</h1>
-                <p class="text-lg text-gray-600">Discover our collection of beautifully designed, responsive Ghost themes for your blog or website</p>
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">Browse Our Premium Ghost Themes</h1>
+                <p class="text-lg text-gray-100">Discover our collection of beautifully designed, responsive Ghost themes for your blog or website</p>
             </div>
 
             <!-- Themes Grid -->

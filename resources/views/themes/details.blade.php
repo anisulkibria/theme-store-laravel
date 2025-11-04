@@ -1,10 +1,10 @@
 <x-app-layout>
     <!-- Product Details Section -->
-    <div class="py-16 md:py-24 bg-white">
+    <div class="py-16 md:py-24 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <nav class="flex mb-8" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-2 text-sm text-gray-500">
+                <ol class="inline-flex items-center space-x-2 text-sm text-gray-100">
                     <li><a href="/" class="hover:text-primary">Home</a></li>
                     <li class="flex items-center">
                         <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
@@ -16,7 +16,7 @@
                         <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <span class="text-gray-900">{{ $theme['name'] }}</span>
+                        <span class="text-white">{{ $theme['name'] }}</span>
                     </li>
                 </ol>
             </nav>
@@ -46,7 +46,7 @@
                     
                     <!-- Social Share -->
                     <div class="border-t border-gray-200 pt-4">
-                        <h3 class="text-sm font-medium text-gray-900 mb-3">Share this theme</h3>
+                        <h3 class="text-sm font-medium text-gray-100 mb-3">Share this theme</h3>
                         <div class="flex space-x-4">
                             <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($theme['name'] . ' - Premium Ghost Theme') }}" target="_blank" rel="noopener noreferrer" class="p-2 bg-[#1DA1F2] text-white rounded-full hover:bg-opacity-90 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -75,18 +75,18 @@
                 <!-- Product Info -->
                 <div class="space-y-8">
                     <div>
-                        <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ $theme['name'] }}</h1>
+                        <h1 class="text-3xl font-bold text-white mb-4">{{ $theme['name'] }}</h1>
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex items-center">
                                 <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
-                                <span class="text-gray-700">{{ $theme['rating'] }}</span>
+                                <span class="text-gray-200">{{ $theme['rating'] }}</span>
                             </div>
                             @if(isset($theme['sales']))
-                            <span class="text-gray-500">|</span>
-                            <span class="text-gray-500">{{ $theme['sales'] }} Sales</span>
+                            <span class="text-gray-100">|</span>
+                            <span class="text-gray-100">{{ $theme['sales'] }} Sales</span>
                             @endif
                         </div>
-                        <p class="text-gray-600 text-lg">{{ $theme['description'] }}</p>
+                        <p class="text-gray-200 text-lg">{{ $theme['description'] }}</p>
                     </div>
 
                     <!-- Features List -->
@@ -110,12 +110,12 @@
 
                     <!-- Purchase Options -->
                     <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-gray-900">Purchase</h3>
+                        <h3 class="text-lg font-semibold text-white">Purchase</h3>
                         <div class="grid gap-4">
                             <a href="{{ $theme['purchaseUrl'] }}" class="flex items-center justify-between p-4 border border-primary rounded-lg bg-primary/5">
                                 <div>
-                                    <h4 class="font-medium text-gray-900">Theme License</h4>
-                                    <p class="text-sm text-gray-500">For a single website</p>
+                                    <h4 class="font-medium text-gray-200">Theme License</h4>
+                                    <p class="text-sm text-gray-100">For a single website</p>
                                 </div>
                                 <span class="text-xl font-bold text-primary">${{ $theme['price'] }}</span>
                             </a>
@@ -137,7 +137,7 @@
             <!-- Theme Details -->
             @if(isset($theme['detailsContent']) && !empty($theme['detailsContent']))
             <div class="mt-20">
-                <div class="prose prose-md max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-li:text-gray-700 prose-li:mb-1 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto">
+                <div class="prose prose-md max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-100 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-gray-100 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-strong:font-semibold prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-4 prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-4 prose-li:text-gray-100 prose-li:mb-1 prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-200 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto">
                     {!! $theme['detailsContent'] !!}
                 </div>
             </div>
@@ -146,7 +146,7 @@
             <!-- Related Themes -->
             @if(isset($relatedThemes) && count($relatedThemes) > 0)
             <div class="mt-20">
-                <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Themes</h2>
+                <h2 class="text-2xl font-bold text-gray-100 mb-8">Related Themes</h2>
                 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     @foreach($relatedThemes as $relatedTheme)
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">

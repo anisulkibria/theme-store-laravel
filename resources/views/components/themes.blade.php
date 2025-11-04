@@ -1,8 +1,8 @@
-<div id="themes" class="py-16 md:py-24 bg-white">
+<div id="themes" class="py-16 md:py-24 bg-[#211D1D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">Our Premium Themes</h2>
-            <p class="text-lg text-gray-600 mb-12">Each theme is crafted with attention to detail, ensuring a perfect showcase for your content</p>
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">Our Premium Themes</h2>
+            <p class="text-lg text-gray-100 mb-12">Each theme is crafted with attention to detail, ensuring a perfect showcase for your content</p>
         </div>
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             @foreach($themes as $theme)
